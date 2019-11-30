@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ders 38 ozel filtre</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+	
+	<script src="filter.js"></script>
+
+	<meta charset="utf-8">
+	<script type="text/javascript"></script>
+</head>
+<body ng-app="app" ng-controller="control">
+	<input type="text" placeholder="ara" ng-model="ara">
+
+	<input type="checkbox" ng-model="secenek1" ng-true-value="'erkek'" ng-false-value="">erkek<input type="checkbox" ng-model="senecek2" ng-true-value="'bayan'" ng-false-value="" > bayan
+
+	<ul>
+		<li ng-repeat="isim in isimler | filter:ara | filter:filtrele"> {{isim}}</li>
+	</ul>
+
+</body>
+</html>

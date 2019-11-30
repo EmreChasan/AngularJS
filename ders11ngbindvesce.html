@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+
+<script >
+	
+	var benimapp=angular.module("myapp",[]);
+	benimapp.controller("mycontrol",function($scope,$sce){
+
+		$scope.deger="";
+		$scope.eylem=function () {
+
+		$scope.benimurl="burayafotografadresigirecek"	
+		$scope.deger=$sce.trustAsHtml("<h1>Merhaba dunya</h1>");
+
+		//trystAsresourceUrl
+}
+
+	});
+
+
+
+</script>
+
+<style>
+	
+.ders10 {
+	height: 200px;
+	width: 200px;
+	padding: 10px;
+	font-size: 20px;
+	color: white;
+	background: cornflowerblue;
+
+
+
+}
+
+</style>
+
+<meta charset="utf-8">
+
+<title> Angular JS 11 bind ve sce</title>
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol">
+
+	<button ng-click="eylem()">Kodu Al</button> <br>
+
+
+
+<div ng-bind-html="deger"><br>
+
+	<img ng-src="{{benimurl}}">
+	
+
+</div>
+
+</body>
+
+
+</html>

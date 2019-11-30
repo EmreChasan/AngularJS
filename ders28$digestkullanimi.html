@@ -1,0 +1,58 @@
+
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+<script>
+	
+	var benimapp=angular.module("myapp",[]);
+
+	benimapp.controller("myconrol",function($scope){
+	
+	document.getElementById('btn').addEventListener("click",function () {
+
+		$scope.deger=Math.random();
+		console.log($scope.deger);
+		$scope.$digest(); //$apply rootscopeuda gunceller digest sadece scopeu gunceller
+
+
+	});
+		
+	
+	});
+
+	
+
+
+
+</script>
+
+<style>
+
+
+</style>
+
+
+<meta charset="utf-8">
+
+<title> Angular JS 28 digest kullanimi </title>
+
+</head>
+
+<body ng-app="myapp"  ng-controller="myconrol">
+
+<button id="btn">ekle</button>
+{{deger}}	
+</body>
+
+
+</html>

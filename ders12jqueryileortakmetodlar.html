@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+
+<script >
+	
+	var benimapp=angular.module("myapp",[]);
+	benimapp.controller("mycontrol",function($scope,$sce){
+
+		$scope.eylem=function(){
+
+		//	angular.element(mydiv).css({"color":"red","background":"black"});
+			angular.element(mydiv).addClass("deneme");
+
+		}
+
+
+	});
+
+
+//https://docs.angularjs.org/api/ng/function/angular.element
+</script>
+
+<style>
+	
+.deneme {
+	color:white;
+	background: black;
+
+}
+
+</style>
+
+<meta charset="utf-8">
+
+<title> Angular JS 12 jquery ile ortak metodlar hazir elementler</title>
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol">
+
+<div id="mydiv" ng-click="eylem()"> deneme 1 ders</div>
+</body>
+
+
+</html>

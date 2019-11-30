@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+
+<script >
+	
+	var benimapp=angular.module("myapp",[]);
+	benimapp.controller("mycontrol",function($scope,$http){
+
+		$scope.deger=true;
+
+		$scope.eylem=function(){
+
+		$scope.deger=!$scope.deger;
+
+
+		}
+
+	
+	});
+
+
+
+</script>
+
+<style>
+	
+.ders9 {
+	height: 200px;
+	width: 200px;
+	padding: 10px;
+	font-size: 20px;
+	color: white;
+	background: cornflowerblue;
+
+
+
+}
+
+</style>
+
+<meta charset="utf-8">
+
+<title> Angular JS 9 ng show hide if</title>
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol">
+
+<button ng-click="deger=true">goster</button><button ng-click="deger=false">gizle</button>
+
+<button ng-click="eylem()">goster ve gizle</button>
+
+{{deger}}
+<div ng-show="deger" class="ders9"> deneme 1 ders</div>
+
+</body>
+
+
+</html>

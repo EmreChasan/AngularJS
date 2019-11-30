@@ -1,0 +1,102 @@
+
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+<script>
+	
+	var benimapp=angular.module("myapp",['ngAnimate']);
+
+	benimapp.factory("turkiye",function(){
+		sehirler=["samsun","rufa","antep","istanbul"];
+		return sehirler;
+
+
+
+	})
+	benimapp.controller("mycontrol",function($scope,turkiye){
+
+		$scope.sehir=turkiye;
+
+		$scope.eylem=function(){
+		$scope.sehir.push($scope.kutu);
+		$scope.kutu="";
+
+
+		}
+
+		$scope.sil=function(a){
+			$scope.sehir.splice(a,1);
+
+		}
+
+	});
+
+	benimapp.controller("mycontrol1",function($scope,turkiye){
+
+		$scope.deneme=turkiye;
+
+	});
+
+
+
+</script>
+
+<style>
+
+
+</style>
+
+
+<meta charset="utf-8">
+
+<title> Angular JS 24 factory kullanimi </title>
+
+</head>
+
+<body ng-app="myapp" >
+	
+	<div ng-controller="mycontrol">
+		<input type="text" ng-model="kutu" ng-keyup="$event.keyCode==13 ? eylem():null"> <!-- keyup--entera tiklandiginda -->
+		<ul>
+			<li ng-repeat="veri in sehir">{{veri}} <button ng-click="sil($index)">sil</button></li>
+
+
+		</ul>		
+
+	 </div>
+</br>
+<hr>
+
+
+
+<div ng-controller="mycontrol1">
+	
+	<ul>
+		<li ng-repeat="veri in deneme">
+			{{veri}}
+			
+
+		</li>
+			
+
+	</ul>
+
+
+</div>
+
+
+
+</body>
+
+
+</html>

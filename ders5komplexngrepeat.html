@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+
+<script >
+	
+	var benimapp=angular.module("myapp",[]);
+	benimapp.controller("mycontrol",function($scope){
+
+	$scope.dedomena = [{"onoma":"bob","age":17},
+						{"onoma":"mary","age":11},
+						{"onoma":"shaw","age":13},
+						{"onoma":"finch","age":13},
+						{"onoma":"harold","age":28},
+						{"onoma":"reese","age":38},
+						{"onoma":"emre","age":12}];
+
+
+	});
+
+
+
+</script>
+
+<meta charset="utf-8">
+
+<title> Angular JS 4 ng-repeat</title>
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol">
+
+	
+<ul>
+	
+<li ng-repeat="veri in dedomena">uyenin adi:{{veri.onoma}}
+	<br>uyenin yasi:{{veri.age}} <br> <br>
+
+</li>
+
+</ul>
+ 
+
+
+</body>
+
+
+</html>

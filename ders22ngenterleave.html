@@ -1,0 +1,92 @@
+
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+<script >
+	
+	var benimapp=angular.module("myapp",['ngAnimate']);
+	benimapp.controller("mycontrol",function($scope){
+
+		$scope.veriler=["emre","enes","mary","bob","john"];
+
+		$scope.eylem=function(){
+			//alert("tiklandi");
+		
+		
+
+
+		$scope.veriler.push($scope.kutu);
+		$scope.kutu="";
+
+		}
+
+		$scope.sil=function(a){
+
+
+			$scope.veriler.splice(a,1);
+		}
+
+
+
+	});
+
+
+
+</script>
+<style>
+
+
+	.ng-enter{
+		transition:all 1s;
+		margin-left: 400px; 
+		opacity: 0;
+	}
+
+	.ng-enter-active{
+transform: rotateZ(45deg);
+		margin-left: 0px;
+		opacity: 1;
+	}
+
+	.ng-leave{
+		transition: all linear 1s;
+		margin-left: 10px;
+		opacity: 1;
+	}
+
+	.ng-leave-active{
+		margin-left: 500px;
+		opacity: 0;
+	}
+
+</style>
+
+
+<meta charset="utf-8">
+
+<title> Angular JS 22 ngenter and leave </title>
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol">
+
+<input type="text" ng-model="kutu" placeholder="isim ekle" ng-keyup="$event.keyCode==13 ? eylem():null"> <br>
+<input type="text" ng-model="arama" placeholder="isim ara">
+
+<ul>
+	<li ng-repeat="veri in veriler | filter:arama"><button ng-click="sil($index)">sil</button>{{veri}}</li>
+
+</ul>
+
+</body>
+
+
+</html>

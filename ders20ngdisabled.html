@@ -1,0 +1,65 @@
+
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+
+<script >
+	
+	var benimapp=angular.module("myapp",[]);
+	benimapp.controller("mycontrol",function($scope,$http){
+
+		$scope.btn=true;
+
+$scope.eylem=function(c){
+ alert(c);
+
+}
+	
+	});
+
+
+
+</script>
+
+<style>
+	
+.deneme{
+
+cursor: pointer;
+background: cornflowerblue;
+color: white;
+width: 150px;
+height: 30px;
+border: none;
+
+outline: none;}
+
+.deneme:disabled {
+	cursor: not-allowed;
+	background: #ccc;
+}
+
+
+}
+
+</style>
+
+<meta charset="utf-8">
+
+<title> Angular JS 9 ng show hide if</title>
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol">
+
+<input ng-keyup="btn=false" type="text" ng-model="mytext">
+<button ng-click="eylem(mytext)" ng-disabled="btn || mytext.length==0" class="deneme"> ekle </button>
+
+</body>
+
+
+</html>

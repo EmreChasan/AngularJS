@@ -1,0 +1,76 @@
+
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+<script >
+	
+	var benimapp=angular.module("myapp",['ngAnimate']);
+	benimapp.controller("mycontrol",function($scope){
+
+
+ });
+
+	benimapp.directive("goster",function(){
+
+		return{
+
+
+			link:function($scope,element,attribute){
+
+				if(attribute.goster=='true'){
+					element.css({"display":"block"})
+				}
+				else
+				{element.css({"display":"none"})}
+
+			}
+
+		}
+
+
+
+	});
+
+	benimapp.directive("kisalt",function(){
+
+
+		return{
+
+
+			link:function($scope,element,attribute){
+				element.html(element.html().substring(0,3));
+				element.append('<span style="color:blue; cursor:pointer;">...devamini oku</span>')
+
+			}
+		}
+	})
+
+
+</script>
+<style>
+	
+</style>
+
+
+<meta charset="utf-8">
+
+<title> Angular JS 33 ozel attribute yazmak </title>
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol">
+
+<div goster="true" kisalt="100">Αποφοίτησε από τη Σχολή Πολιτικών Επιστημών στο Πανεπιστήμιο της Άγκυρας. Υπήρξε ο αρχισυντάκτης του λογοτεχνικού περιοδικού Papirus. Ο Τζεμάλ Σουρεγιά είναι εξέχον μέλος της Δεύτερης Νέας Γενιάς της Τουρκικής ποίησης, αφηρημένου και μεταμοντέρνου κινήματος που δημιουργήθηκε ως αντίδραση στο πιο δημοφιλές κίνημα της ομάδας Γκαρίπ. Επαναλαμβανόμενο θέμα του έργου του Τζεμάλ Σουρεγιά είναι η αγάπη, μέσω της ερωτικής της οντότητας. Ποιήματα και άρθρα του έχουν δημοσιευτεί σε περιοδικά όπως τα Yeditepe, Yazko, Pazar Postası, Yeni Ulus, Oluşum, Türkiye Yazıları, Politika, Aydınlık, και Somut. Θεωρείται πως επέδρασε σημαντικά στην ποίηση του Σουνάι Ακίν. </div>
+<br>
+<div> </div>
+
+</body>
+
+
+</html>

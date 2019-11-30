@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+
+<script>
+
+var benimapp=angular.module("myapp",[]);
+benimapp.controller("mycontrol",function($scope){
+$scope.silinenler=[];
+$scope.veriler=[ {"mesaj":"emre","durum":false},
+				 {"mesaj":"merhaba nasilsin","durum":false},
+				 {"mesaj":"iyiyim sen nassin","durum":false},
+				 {"mesaj":"iyilik","durum":false},
+				 {"mesaj":"aiv","durum":false},
+				 {"mesaj":"sanada","durum":false}];
+				
+
+
+
+				$scope.sec=function(){
+
+
+	$scope.toplam=$scope.veriler.length;
+	
+
+	for(a=0; a<$scope.toplam; a++)
+	{
+		$scope.veriler[a].durum=true;
+
+	}
+}
+
+$scope.hepsinisil=function(){
+
+
+	for(a=0; a<$scope.toplam; a++)
+	{
+		$scope.veriler[a].durum=false;
+
+	}
+}
+
+
+	$scope.sil=function(){
+
+		$scope.silinenler=$scope.veriler.filter(function(a){
+
+
+			return a.durum==true;
+
+		});
+
+
+		$scope.veriler=$scope.veriler.filter(function(a){
+
+
+			return a.durum==false;
+
+		});
+
+
+	}
+			
+				});
+
+
+
+
+
+
+
+</script>
+<style>
+.kutu{
+
+height: 40px;
+width: 200px;
+margin: 10px;
+
+}
+
+	button {
+
+height: 40px;
+width: 200px;
+margin: 10px;
+
+	}
+.kutu.ng-invalid{
+
+background: red;
+
+}
+.kutu.ng-valid{
+
+
+	background: yellow;
+}
+
+.kutu.ng-pristine{
+
+	background: #ccc;
+}
+
+
+</style>
+
+
+
+<meta charset="utf-8">
+<title> Angular JS 18 ng valid ng invalid stili>
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol">
+
+<form name="myform">
+	<input class="kutu" ng-model="numara" type="number" placeholder="rakam giriniz">
+	<input class="kutu" ng-model="mail" type="number" placeholder="mail giriniz">
+
+	<button>mesaji gonder</button>
+
+</form>
+</body>
+
+
+</html>

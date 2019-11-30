@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+
+<script >
+	
+	var benimapp=angular.module("myapp",[]);
+	benimapp.controller("mycontrol",function($scope,$http){
+
+
+	// baska siteden veri cekme ornek $http.get("url").then(basarili,hatali);
+
+	$http.get("https://jsonplaceholder.typicode.com/posts").then(function(response) { //donen deger icin response yazarim
+
+		$scope.veriler=response.data; //sadece veriler alinir eger .data yazmazsam http bilgilerinide alir
+
+	})
+
+
+	
+	});
+
+
+
+</script>
+<style>
+	ul{
+
+		list-style-type: none;
+	}
+
+	li{
+
+		padding: 10px;
+		border: 2px solid cornflowerblue;
+		margin: 10px;
+
+	}
+
+</style>
+<meta charset="utf-8">
+
+<title> Angular JS 6 ng-repeat</title>
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol">
+
+	<ul>
+		<li ng-repeat="veri in veriler">
+			yorum: {{veri.body}}
+
+		</li>
+
+
+	</ul>
+
+ 
+
+
+</body>
+
+
+</html>

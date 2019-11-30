@@ -1,0 +1,63 @@
+
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+<script>
+	
+	var benimapp=angular.module("myapp",[]);
+
+	benimapp.controller("myconrol",function($scope,$rootScope){
+	$rootScope.deger="bu kontrol 1 icinde";
+			
+	
+	})
+
+	benimapp.controller("myconrol2",function($scope,$rootScope){
+		$scope.benimdeger=$rootScope.deger;
+
+
+	});
+
+
+
+</script>
+
+<style>
+
+
+</style>
+
+
+<meta charset="utf-8">
+
+<title> Angular JS 26 ng-option </title>
+
+</head>
+
+<body ng-app="myapp" >
+
+	<div ng-controller="myconrol"> benim kontrol 1 <br>
+		{{deger}}
+
+	</div>
+	<br>
+	<hr>
+
+	<div ng-controller="myconrol2">benim kontrol 2 <br>
+		{{benimdeger}}
+
+	</div>
+</body>
+
+
+</html>

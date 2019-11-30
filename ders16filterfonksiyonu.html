@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+
+<script>
+
+var benimapp=angular.module("myapp",[]);
+benimapp.controller("mycontrol",function($scope){
+$scope.isimler=[];
+$scope.veriler=[ {"isim":"emre","borcu":100},
+				 {"isim":"bob","borcu":1100},
+				 {"isim":"john","borcu":1510},
+				 {"isim":"ellie","borcu":1700},
+				 {"isim":"mary","borcu":1820},
+				 {"isim":"sani","borcu":1800}];
+				
+				$scope.eylem=function(){
+
+
+
+				$scope.isimler=$scope.veriler.filter(function(a){
+
+						return a.borcu>1500;
+});
+					}
+				});
+
+
+
+
+
+
+
+</script>
+
+
+
+
+<meta charset="utf-8">
+<title> Angular JS 16 fonksiyon filter</title>
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol">
+<button ng-click="eylem(a)">calistir</button>
+<ul>
+	<li ng-repeat ="isim in isimler">{{isim}} </ling-repeat>
+	
+
+</ul>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,66 @@
+
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+<script >
+	
+	var benimapp=angular.module("myapp",['ngAnimate']);
+	benimapp.controller("mycontrol",function($scope){
+
+	$scope.deger=false;
+
+	$scope.eylem=function(){
+
+		$scope.deger=!deger;
+
+
+
+	}
+
+	});
+
+
+
+</script>
+<style>
+	.resim{
+		height: 400px;
+		width: 400px;
+		transition: all 2s;
+	}
+	.resim.ng-hide{
+
+		transform: rotateZ(180deg);
+		
+		height: 10px;
+		width: 10px;
+		border: 50px solid red;
+		opacity: 0;
+	}
+
+</style>
+
+
+<meta charset="utf-8">
+
+<title> Angular JS 20 animasyon nganimate </title>
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol">
+
+<button ng-click="eylem()">Goster-Gizle</button><br>
+
+<img class="resim" ng-hide="deger" ng-src="https://www.fotografindir.net/wp-content/uploads/2014/11/Kiz-kulesi-resimleri-indir.jpg">
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,87 @@
+
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+<script>
+	
+	var benimapp=angular.module("myapp",['ngAnimate']);
+
+	benimapp.controller("myconrol",function($scope){
+		$scope.resim="gs.jpeg"
+		
+
+	});
+
+		benimapp.directive("ozel",function(){
+
+			return{
+
+				link:function($scope,$element,$attr){
+					$element.on("click",function(){
+						$scope.resim=$attr.ngSrc;
+						$scope.$digest();
+
+
+					})
+
+
+				}
+
+
+			}
+
+
+		})
+		
+</script>
+
+<style>
+.resimler img{
+	cursor: pointer;
+	height: 100px;
+	width: 120px;
+
+}
+
+.orta img{
+	height: 500px;
+	width: 500px;
+}
+
+
+</style>
+
+
+<meta charset="utf-8">
+
+<title> Angular JS 30 resim galerisi </title>
+
+</head>
+
+<body ng-app="myapp"  ng-controller="myconrol">
+	<div class="resimler">
+		<img ozel ng-src="gs.jpeg" width="255" height="159" alt="fotograf yuklenemedi"/>
+
+		<img ozel ng-src="gs2.jpeg"/>
+		<img ozel ng-src="gs3.jpeg"/>
+		<img ozel ng-src="kizkulesi.jpeg"/>
+	</div>
+
+	<div class="orta"> <img ng-src="{{resim}}">
+
+	</div>
+
+</body>
+
+
+</html>

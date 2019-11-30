@@ -1,0 +1,63 @@
+
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
+
+
+
+<script>
+	
+	var benimapp=angular.module("myapp",['ngRoute']);
+
+
+	benimapp.config(function($routeProvider){
+
+		$routeProvider.when("/", {templateUrl:"deneme.html"})
+			.when("/ders32b",{templateUrl:"ders32b.html"})
+			.when("/iletisim",{templateUrl:"ders32c.html"})
+			.when("/404",{templateUrl:"./404.html"})
+			.otherWise({redirectTo:"/404"})
+
+
+
+	});
+
+	benimapp.controller("myconrol",function($scope){
+		
+
+
+		});
+
+
+
+		
+</script>
+
+<style>
+	
+
+</style>
+
+
+<meta charset="utf-8">
+
+<title> Angular JS 32 sayfa yenilemeden coklu sayfa </title>
+
+</head>
+
+<body ng-app="myapp"  ng-controller="myconrol">
+
+	<div ng-view> </div>
+</body>
+
+
+</html>

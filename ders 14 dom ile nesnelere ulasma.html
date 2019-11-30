@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+
+<script>
+
+var benimapp=angular.module("myapp",[]);
+benimapp.controller("mycontrol",function($scope){
+
+$scope.eylem=function (a) {
+	
+
+
+
+	alert(a);
+}
+
+
+});	
+
+
+
+
+</script>
+<style>
+	.kirmizi{
+		background:red;
+
+
+
+
+	}
+
+
+</style>
+
+
+
+<meta charset="utf-8">
+<title> Angular JS 14 dom</title>
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol">
+
+<input type="text" ng-model="deger"><br>
+<button ng-click="eylem(deger)">degeri al</button>
+
+<input type="checkbox" ng-model="kontrol">
+{{kontrol}}
+<div ng-class="{'kirmizi':kontrol}"> deneme bu ders</div>
+
+</body>
+
+
+</html>

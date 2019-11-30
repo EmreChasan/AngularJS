@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+
+<script >
+	
+	var benimapp=angular.module("myapp",[]);
+	benimapp.controller("mycontrol",function($scope,$http){
+
+		
+
+
+		$scope.diziler=["araba","tren","kaymon","otobus","metrebus"];
+
+		$scope.eylem=function(a){
+
+			alert($index);
+			$scope.diziler.splice(a,a+1); //diziden eleman siler
+		}
+
+	});
+
+
+
+</script>
+
+<style>
+	
+.ders10 {
+	height: 200px;
+	width: 200px;
+	padding: 10px;
+	font-size: 20px;
+	color: white;
+	background: cornflowerblue;
+
+
+
+}
+
+</style>
+
+<meta charset="utf-8">
+
+<title> Angular JS 10 index</title>
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol">
+
+
+<ul>
+	<li ng-repeat="x in diziler"> 
+		<button ng-click="eylem($index)">sil</button>
+		{{x}}
+
+	</li>
+
+</ul>
+
+
+</body>
+
+
+</html>

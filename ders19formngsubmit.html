@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+
+<script>
+
+var benimapp=angular.module("myapp",[]);
+benimapp.controller("mycontrol",function($scope,$http){
+
+
+	$scope.eylem=function(){
+		$scope.data={"rakam":$scope.numara,"mail":$scope.mail};
+		$http.post("/dosya.php",$scope.data).then(function(response){
+
+
+			$scope.cevap=response.data;
+
+
+		})
+
+
+	}
+
+				});
+
+
+
+
+</script>
+
+<style>
+
+.kutu{
+
+height: 40px;
+width: 200px;
+margin: 10px;
+
+}
+
+	button {
+
+height: 40px;
+width: 200px;
+margin: 10px;
+
+	}
+.kutu.ng-invalid{
+
+background: red;
+
+}   .kutu.ng-dirty{
+
+ 	background: green;
+
+ }
+.kutu.ng-valid{
+
+
+	background: yellow;
+}
+
+.kutu.ng-pristine{
+
+	background: blue;
+}
+
+.red{
+	background: red;
+}
+
+</style>
+
+
+
+<meta charset="UTF-8">
+<title> Angular JS 18 ng valid ng invalid stili </title>
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol">
+
+<form name="myform" ng-submit="eylem();" >
+	<input class="kutu" ng-model="numara" type="number" placeholder="rakam giriniz"> <br>
+
+	<input ng-class="(mail=='':red)"class="kutu" ng-model="mail" type="email" placeholder="mail giriniz"><br>
+
+	<button>mesaji gonder</button>
+
+</form>
+{{cevap}}
+
+</body>
+
+
+</html>

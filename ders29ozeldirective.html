@@ -1,0 +1,126 @@
+
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+<script>
+	
+	var benimapp=angular.module("myapp",[]);
+
+	benimapp.controller("myconrol",function($scope){
+
+		$scope.veriler=["deneme","john","bob","reese"];
+	
+	
+
+	});
+
+		benimapp.directive("mydirective",function(){
+
+			return {
+					restrict:'C', //sinirlama a= attribute c=class e=element vs
+					transclude:true,
+					template:'<div ng-transclude></div><div class="mydiv">dene bir directive dersi</div>',
+					link:function(scope,element,attrs){
+
+						element.css({'border':'3px solid red'});
+						element.on("click",function(){
+
+							alert("element.html()");
+
+						})
+					}
+			}
+
+
+
+		});
+
+
+		benimapp.directive("ozel",function (){
+
+			return{
+
+				link:function(scope,element,attribute){
+
+ 					element.css({'background':'black', 'color':'white'});
+
+ 					element.html(element.html().substring(0,attribute,15));
+
+ 					element.append('<span style="cursor:pointer; color:blue;">....devamini oku</span>')
+
+				}
+			}
+
+
+
+		})
+
+		benimapp.directive("goster",function(){
+			return{
+
+				restrict:'A',
+				link:function($scope,element,attrs){
+					console.log(attrs.goster);
+					if(attrs.goster=='true')
+						{console.log("meraba");
+						 element.css({"display":"block"})	}
+
+					else
+						{element.css({"display":"none"})}
+
+				}
+			}
+
+		});
+		
+</script>
+
+<style>
+.mydiv{
+	background: cornflowerblue;
+	color: white;
+	height: 150px;
+	width: 150px;
+	text-align: center;
+	font-size: 20px;
+
+
+}
+
+
+</style>
+
+
+<meta charset="utf-8">
+
+<title> Angular JS 29 ozel directive </title>
+
+</head>
+
+<body ng-app="myapp"  ng-controller="myconrol">
+
+bu element icin
+<mydirective> </mydirective>
+<hr>
+bu class icin
+<div class="mydirective"></div>
+<hr>
+<div mydirective> burasi ozel attr icin</div>
+buda attribute icin
+<hr>
+
+<div goster="true" ozel="5"> bur bir ozel trsssssssssssssssssssssssssssssssssssss</div>
+</body>
+
+
+</html>

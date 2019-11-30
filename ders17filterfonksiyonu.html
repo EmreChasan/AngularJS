@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+
+<script>
+
+var benimapp=angular.module("myapp",[]);
+benimapp.controller("mycontrol",function($scope){
+$scope.silinenler=[];
+$scope.veriler=[ {"mesaj":"emre","durum":false},
+				 {"mesaj":"merhaba nasilsin","durum":false},
+				 {"mesaj":"iyiyim sen nassin","durum":false},
+				 {"mesaj":"iyilik","durum":false},
+				 {"mesaj":"aiv","durum":false},
+				 {"mesaj":"sanada","durum":false}];
+				
+
+
+
+				$scope.sec=function(){
+
+
+	$scope.toplam=$scope.veriler.length;
+	
+
+	for(a=0; a<$scope.toplam; a++)
+	{
+		$scope.veriler[a].durum=true;
+
+	}
+}
+
+$scope.hepsinisil=function(){
+
+
+	for(a=0; a<$scope.toplam; a++)
+	{
+		$scope.veriler[a].durum=false;
+
+	}
+}
+
+
+	$scope.sil=function(){
+
+		$scope.silinenler=$scope.veriler.filter(function(a){
+
+
+			return a.durum==true;
+
+		});
+
+
+		$scope.veriler=$scope.veriler.filter(function(a){
+
+
+			return a.durum==false;
+
+		});
+
+
+	}
+			
+				});
+
+
+
+
+
+
+
+</script>
+
+
+
+
+<meta charset="utf-8">
+<title> Angular JS 17 fonksiyon filter</title>
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol">
+
+	<button ng-click="sil()">sil</button>
+	<button ng-click="sec()">hepsini sec</button>
+	<button ng-click="hepsinisil()">hepsini kaldir</button>
+	<div ng-show="veriler.length==0">silinecek icerik yok</div>
+
+	<hr>
+	<ul>
+	<li ng-repeat ="veri in veriler">
+	<input  type="checkbox" ng-model="veri.durum"> {{veri.mesaj}} </li>
+
+</ul>
+<hr>
+
+<div ng-show="silinenler.length>0">
+	<h2>silinenler</h2>
+
+	<ul>
+		<li ng-repeat="silinen in silinenler">
+			
+			{{silinen.mesaj}}
+
+		</li>
+
+
+	</ul>
+
+</div>
+
+</body>
+
+
+</html>

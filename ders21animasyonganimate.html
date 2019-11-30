@@ -1,0 +1,67 @@
+
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+<script >
+	
+	var benimapp=angular.module("myapp",['ngAnimate']);
+	benimapp.controller("mycontrol",function($scope){
+
+	$scope.deger=false;
+
+	$scope.eylem=function(){
+
+		$scope.deger=!deger;
+
+
+
+	}
+
+	});
+
+
+
+</script>
+<style>
+	.resim{
+		transition: all 2s;
+		height: 400px;
+		width: 400px;
+		
+	}
+	.resim.ng-hide{
+
+		transform:rotateZ(180deg);
+		
+		height: 10px;
+		width: 10px;
+		border: 50px solid red;
+		opacity: 0;
+	}
+
+</style>
+
+
+<meta charset="utf-8">
+
+<title> Angular JS 21 animasyon nganimate </title>
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol">
+
+<button ng-click="eylem()">Goster-Gizle</button></br>
+
+<img class="resim" ng-hide="deger" ng-src="https://saglamindir.net/wp-content/uploads/2018/12/assassins-creed-odyssey-oyunu-indir.jpg">
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,75 @@
+
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+<script>
+	
+	var benimapp=angular.module("myapp",['ngAnimate']);
+
+	benimapp.controller("myconrol",function($scope){
+		
+
+		$scope.durum=true;
+	});
+
+
+
+</script>
+
+<style>
+.kirmizi{
+background: red;
+color: white;
+
+}
+
+.yesil{
+background: green;
+color:white;
+
+}
+
+.ng-hide{
+	-webkit-transform:all 1s;
+	-moz-transform:all 1s;
+	-ms-transform:all 1s;
+	-o-transform: all 1s;
+	transform: all 1s;
+	opacity: 0;
+
+}
+
+</style>
+
+
+<meta charset="utf-8">
+
+<title> Angular JS 25 button toggle class </title>
+
+</head>
+
+<body ng-app="myapp" ng-controller="myconrol" >
+
+
+<button style="height: 40px; width: 40px; border: none;" ng-class="{yesil:durum, kirmizi:!durum}" ng-click="durum=!durum">
+	<span ng-show="durum">on</span>
+	<span ng-show="!durum">off</span>
+</button>
+<br>
+<div ng-show="durum"> ajhdkjashdkjahsdkjhakjd</div>
+
+
+</body>
+
+
+</html>

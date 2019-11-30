@@ -1,0 +1,66 @@
+
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-touch/1.5.1/angular-touch.js"></script>
+<script >
+	
+	var benimapp=angular.module("myapp",['ngTouch']);
+	benimapp.controller("mycontrol",function($scope){
+ 	$scope.say=1;
+
+ });
+
+	
+
+
+</script>
+<style>
+.divim{
+
+	height: 200px;
+	width: 200px;
+	position: fixed;
+	background: cornflowerblue;
+	color: white;
+	font-size: 50px;
+	text-align: center;
+
+img{
+
+height: 200px;
+width: 200px;
+
+}
+
+}	
+
+</style>
+
+
+<meta charset="utf-8">
+
+<title> Angular JS 33 ozel attribute yazmak </title>
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol">
+
+<div ng-app="modul" ng-controller="mycontrol">
+	telefonla divin uzerinde saga sola git
+	<div ng-swipe-right="say=sayi+1" ng-swipe-left="say=say-1" class="divim">
+	
+<img ng-src="gs1.jpeg" ng-show="say==0">
+<img ng-src="kizkulesi.jpeg" ng-show="say==1">
+<img ng-src="gs2.jpeg" ng-show="say==2">
+</div></div>
+<div ng-show="say==3">baska resim yok</div>
+</body>
+
+
+</html>

@@ -1,0 +1,78 @@
+
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+<script >
+	
+	var benimapp=angular.module("myapp",[]);
+	benimapp.controller("mycontrol",function($scope,$compile){
+	//angular.element(benimdiv).append($compile('<input type="text" placeholder="isim yaz" ng-model="kutu">')($scope));
+
+//	$compile(icerik)($scope):
+
+	$scope.eylem=function(a){
+		
+		alert(a);
+
+
+
+	}
+ });
+
+benimapp.directive("mydirective",function($compile){
+	return{
+	//	transclude:true,
+		//template:'<div ng-transclude></div><input type="text" ng-model="kutu">'
+		link:function($scope,$element,$attribute){
+			$element.append($compile('<input type="text" ng-model="kutu">')($scope));
+			$element.append($compile('<button ng-click="eylem(kutu)">tikla </button>')($scope));
+
+		}
+	}
+
+
+})
+
+
+
+</script>
+<style>
+	.divim{
+		width: 300px;
+		border: 2px solid #ccc;
+		padding: 15px;
+
+
+	}
+</style>
+
+
+<meta charset="utf-8">
+
+<title> Angular JS 33 ozel attribute yazmak </title>
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol">
+
+	<div mydirective id="benimdiv" ozel class="divim"> 
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</div>
+	
+<hr>
+
+</body>
+
+
+</html>

@@ -1,0 +1,58 @@
+
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+<script>
+	
+	var benimapp=angular.module("myapp",['ngAnimate']);
+
+	benimapp.controller("myconrol",function($scope){
+			
+		$scope.cities=["istanbul","urfa","athens","thessaloniki"]
+		$scope.cities.unshift("bir il seciniz");
+
+		$scope.kontrol=$scope.cities[0];
+		$scope.eylem=function(a){
+
+			alert(a);
+
+
+		}
+
+		$scope.veriler=[{"id":1,"ad":"bob"},{"id":2,"ad":"john"}];
+	});
+
+
+
+</script>
+
+<style>
+
+
+</style>
+
+
+<meta charset="utf-8">
+
+<title> Angular JS 26 ng-option </title>
+
+</head>
+
+<body ng-app="myapp" ng-controller="myconrol" >
+
+	<select ng-change="eylem(kontrol)" ng-model="kontrol" ng-options="veri.id as veri.ad for veri in veriler"> {{veri}}</select> <hr>
+
+</body>
+
+
+</html>
